@@ -13,8 +13,8 @@ RUN a2enmod rewrite
 # Set working directory
 WORKDIR /var/www/html
 
-# Clone the WeMakeDevHackathon repository
-RUN git clone https://github.com/Tarun9005/WeMakeDevHackathon.git /var/www/html/WeMakeDevHackathon
+# Clone the HospitalBloodHackathon repository
+RUN git clone https://github.com/Tarun9005/HospitalBloodHackathon.git /var/www/html/WeMakeDevHackathon
 
 # Set the correct permissions for Apache
 RUN chown -R www-data:www-data /var/www/html/WeMakeDevHackathon \

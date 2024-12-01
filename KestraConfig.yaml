@@ -4,7 +4,7 @@ namespace: hospital_blood_system
 tasks:
   - id: sync_from_git
     type: io.kestra.plugin.git.SyncFlows
-    url: https://github.com/Tarun9005/WeMakeDevHackathon
+    url: https://github.com/Tarun9005/HospitalBloodHackathon
     branch: main
     targetNamespace: hospital_blood_system
     username: Tarun9005
@@ -16,7 +16,7 @@ tasks:
     username: "ec2-user"
     privateKey: "*****"
     commands:
-      - cd /var/www/html/WeMakeDevHackathon
+      - cd /var/www/html/HospitalBloodHackathon
       - git pull origin main
       - docker-compose down
       - docker-compose up -d --build
