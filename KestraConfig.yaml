@@ -1,0 +1,27 @@
+id: sync_and_deploy
+namespace: hospital_blood_system
+
+tasks:
+  - id: sync_from_git
+    type: io.kestra.plugin.git.SyncFlows
+    url: https://github.com/Tarun9005/WeMakeDevHackathon
+    branch: main
+    targetNamespace: hospital_blood_system
+    username: Tarun9005
+    password: "******"
+
+  - id: deploy_to_server
+    type: io.kestra.plugin.fs.ssh.Command
+    host: "ec2-52-23-205-222.compute-1.amazonaws.com"
+    username: "ec2-user"
+    privateKey: "*****"
+    commands:
+      - cd /var/www/html/WeMakeDevHackathon
+      - git pull origin main
+      - docker-compose down
+      - docker-compose up -d --build
+
+triggers:
+  - id: github_webhook
+    type: io.kestra.plugin.core.trigger.Webhook
+    key: "*****"
