@@ -14,11 +14,11 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 
 # Clone the HospitalBloodHackathon repository
-RUN git clone https://github.com/Tarun9005/HospitalBloodHackathon.git /var/www/html/WeMakeDevHackathon
+RUN git clone https://github.com/Tarun9005/HospitalBloodHackathon.git /var/www/html/HospitalBloodHackathon
 
 # Set the correct permissions for Apache
-RUN chown -R www-data:www-data /var/www/html/WeMakeDevHackathon \
-    && chmod -R 755 /var/www/html/WeMakeDevHackathon
+RUN chown -R www-data:www-data /var/www/html/HospitalBloodHackathon \
+    && chmod -R 755 /var/www/html/HospitalBloodHackathon
 
 # Install MySQL and import the database
 COPY hospitalblood.sql /docker-entrypoint-initdb.d/
